@@ -1,0 +1,57 @@
+﻿@model IEnumerable<OnlineSweetShop.Models.Offer>
+
+@{
+    ViewData["Title"] = "ViewOfferx";
+}
+
+<h1>ViewOfferx</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.offer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.edate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.edate)
+            </td>
+            <td>
+                    <a asp-controller="Orders" asp-action="OrderNow" asp-route-id="@item.id">OrderNow</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

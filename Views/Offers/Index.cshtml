@@ -1,0 +1,60 @@
+﻿@model IEnumerable<OnlineSweetShop.Models.Offer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.offer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.edate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.edate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    <a asp-controller="Orders" asp-action="Index" asp-route-id="@item.id">Orderlist</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
